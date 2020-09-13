@@ -19,7 +19,7 @@ class Linkedlist:
         printval = self.head
         while printval is not None:
             print(printval.data)
-            printval.next = self.head
+            printval=printval.next
 l1 = Linkedlist()
 l1.insert_start(3)
 l1.insert_start(5)
