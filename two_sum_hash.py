@@ -14,6 +14,8 @@ def twosumhash(nums, key):
             print(comp,nums[i])
         hashtables[nums[i]] = nums[i]
 
+        
+
 nums=[4,5,1,8]
 key = 9
 
