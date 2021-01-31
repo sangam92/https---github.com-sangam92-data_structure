@@ -1,29 +1,32 @@
-def paranthesis(exprs):
-    stack = []
-    for char in exprs:
-        if char in ["(","{","["]:
-            stack.append(char)
-        else:
-            currchar = stack.pop()
-            if currchar =="(":
-                if char !=")":
-                    return False
-            if currchar == "{":
-                if char != "}":
-                    return False
-            if currchar == "[":
-                if char != "]":
-                    return False
-    if stack:
-        print(stack)
-        return False
-    return True
 
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+        stack = []
+        for char in s:
+            if char in ["(","{","["]:
+                stack.append(char)
+            
+            else:
+                if len(stack)==0:
+                    return False
+                currchar = stack.pop()
+                if currchar =="(":
+                    if char !=")":
+                        return False
+                if currchar == "{":
+                    if char != "}":
+                        return False
+                if currchar == "[":
+                    if char != "]":
+                        return False
+        if stack:
+            return False
+        else:
+            return True
+ 
 
 if __name__ == "__main__":
-    exprs = "({[]}]"
-
-    if paranthesis:
-        print("Balanced")
-    else:
-        print("Unbalanced")
+    exprs = "]"
+    s=Solution()
+    print(s.isValid(exprs))

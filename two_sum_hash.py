@@ -11,7 +11,7 @@ def twosumhash(nums, key):
     for i in range(len(nums)):
         comp = key - nums[i]
         if comp in hashtables:
-            print(comp,nums[i])
+            print(nums.index(comp),i)
         hashtables[nums[i]] = nums[i]
 
         
