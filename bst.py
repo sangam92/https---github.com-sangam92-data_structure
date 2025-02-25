@@ -12,17 +12,33 @@ class Node:
         self.val=val
 
 
-def insert(root,node):
+def insert(root,val):
     if root is None:
-        root=node
+        root=Node(val)
     else:
-        if root.val < node:
-            root.right=None
-            root.right=node
+        if root.val < val:
+            root.right=insert(root.right,val)
         else:
-            if root.left is None:
-                root.left=None
-                root.left=node
-                
+            root.left=insert(root.left,val)
+    return root
+
+def inorder(root):
+    if root: 
+        inorder(root.left) 
+        print(root.val) 
+        inorder(root.right) 
+
+
+   
+r = Node(50) 
+r = insert(r, 30) 
+r = insert(r, 20) 
+r = insert(r, 40) 
+r = insert(r, 70) 
+r = insert(r, 60) 
+r = insert(r, 80) 
+  
+# Print inoder traversal of the BST 
+print(inorder(r))                
        
          
